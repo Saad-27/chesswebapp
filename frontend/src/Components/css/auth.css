@@ -1,0 +1,141 @@
+/* Auth container styles */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 360px; /* Reduced from 400px */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 24px; /* Reduced from 32px */
+  backdrop-filter: blur(8px);
+}
+
+.auth-header {
+  margin-bottom: 24px; /* Reduced from 32px */
+}
+
+.auth-header h1 {
+  font-size: 24px;
+  color: #1e293b;
+  margin-bottom: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.auth-tabs {
+  display: flex;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 8px 12px; /* Reduced horizontal padding */
+  text-align: center;
+  text-decoration: none;
+  color: #64748b;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem; /* Slightly smaller font */
+}
+
+.auth-tab.active {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Reduced from 20px */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Reduced from 8px */
+}
+
+.form-group label {
+  font-size: 0.85rem; /* Smaller font size */
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 10px 14px; /* Reduced padding */
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9rem; /* Slightly smaller font */
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.submit-button {
+  background-color: #7c3aed;
+  color: white;
+  padding: 10px; /* Reduced padding */
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background-color: #6d28d9;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-right: 36px; /* Adjusted for icon */
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px; /* Smaller icon */
+}
+
+.error-message {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #dc2626;
+  padding: 8px 12px; /* Reduced padding */
+  border-radius: 6px;
+  font-size: 0.8rem; /* Smaller font */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 20px;
+    margin: 16px;
+  }
+  
+  .form-group input {
+    font-size: 16px; /* Better for mobile */
+  }
+}

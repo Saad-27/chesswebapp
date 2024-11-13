@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './config';
+import { useNavigate, Link } from 'react-router-dom';
+import './css/auth.css'; // We'll rename Register.css to Auth.css since both components will use it
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,71 +11,77 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check if the user is already logged in
-    const checkLoginStatus = () => {
-      const currentUser = auth.currentUser;
-      if (currentUser) {
-        // User is logged in, redirect to the user profile page
-        navigate('/user');
-      }
-    };
-    checkLoginStatus();
-  }, [navigate]);
-
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if email and password are provided
+    
     if (!email || !password) {
-      setError('Please enter email and password');
+      setError('Please enter both email and password');
       return;
     }
 
     setLoading(true);
 
     try {
-      // Sign in the user with email and password
       await signInWithEmailAndPassword(auth, email, password);
-      // Redirect to the user profile page
+      setEmail('');
+      setPassword('');
+      setError('');
       navigate('/user');
     } catch (error) {
-      // Handle login errors
-      setError(error.message);
+      setError('Invalid email or password');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email: </label>
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-header">
+          <h1>Chess</h1>
+          <div className="auth-tabs">
+            <Link to="/login" className="auth-tab active">Login</Link>
+            <Link to="/register" className="auth-tab">Register</Link>
+          </div>
         </div>
-        <div>
-          <label>Password: </label>
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <button type='submit' disabled={loading}>
+
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label>Email</label>
+            <div className="input-with-icon">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Enter your email"
+              />
+              <span className="input-icon">👑</span>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+
+          {error && <div className="error-message">{error}</div>}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`submit-button ${loading ? 'loading' : ''}`}
+          >
             {loading ? 'Logging in...' : 'Login'}
           </button>
-        </div>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
