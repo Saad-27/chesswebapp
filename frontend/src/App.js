@@ -48,7 +48,7 @@ function App() {
                 <NavLink to='/user'>Profile</NavLink>
               </li>
               <li>
-                <NavLink to='/scoreboard'>Scoreboard</NavLink>
+                <NavLink to='/scoreboard'>Leaderboard</NavLink>
               </li>
             </ul>
           </div>
@@ -74,20 +74,10 @@ function App() {
 const GameWithHuman = () => {
   return (
     <div className='game-container'>
-      <h1>Game Screen (Human vs Human)</h1>
+      
       <GameScreen />
       <div className='boards-container'>
-        <Chessboard
-          id='human-game'
-          position='start'
-          width={560}
-          boardStyle={{
-            borderRadius: '8px',
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
-            backgroundColor: '#fff',
-          }}
-          orientation='white'
-        />
+        
       </div>
     </div>
   );

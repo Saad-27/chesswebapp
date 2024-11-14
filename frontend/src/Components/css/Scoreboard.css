@@ -1,0 +1,146 @@
+.leaderboard-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .leaderboard-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .leaderboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  
+  .header-icon {
+    color: #8b5cf6;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .leaderboard-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Header styles */
+  th {
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    background-color: #f9fafb;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  
+  .rank-header {
+    text-align: left;
+    width: 80px;
+  }
+  
+  .name-header {
+    text-align: left;
+  }
+  
+  .rating-header {
+    text-align: right;
+    padding-right: 24px;
+  }
+  
+  /* Cell styles */
+  td {
+    padding: 16px;
+    font-size: 14px;
+  }
+  
+  /* Alternating row colors - darker version */
+  .row-even {
+    background-color: #ffffff;
+  }
+  
+  .row-odd {
+    background-color: #e5e9ed; /* Darker shade for better contrast */
+  }
+  
+  /* Hover effect */
+  tr:hover {
+    background-color: #e2e8f0; /* Darker hover state */
+  }
+  
+  .rank-cell {
+    width: 80px;
+    color: #6b7280;
+  }
+  
+  .rank-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .rank-icon.gold {
+    color: #f59e0b;
+  }
+  
+  .rank-icon.silver {
+    color: #9ca3af;
+  }
+  
+  .rank-icon.bronze {
+    color: #b45309;
+  }
+  
+  .name-cell {
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  .rating-cell {
+    font-weight: 600;
+    color: #8b5cf6;
+    text-align: right;
+    padding-right: 24px;
+  }
+  
+  .rank-number {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 640px) {
+    .leaderboard-container {
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+  
+    th, td {
+      padding: 12px;
+    }
+  
+    .leaderboard-header h1 {
+      font-size: 24px;
+    }
+  
+    .rank-cell {
+      width: 60px;
+    }
+  
+    .rating-header,
+    .rating-cell {
+      padding-right: 16px;
+    }
+  }

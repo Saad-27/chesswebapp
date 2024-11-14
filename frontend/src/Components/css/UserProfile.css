@@ -1,0 +1,114 @@
+.profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .profile-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .profile-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  
+  .header-icon {
+    color: #8b5cf6;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .profile-section {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .section-header h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b5563;
+  }
+  
+  .section-icon {
+    color: #8b5cf6;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .section-content {
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+  
+  .points {
+    font-size: 32px;
+    font-weight: 600;
+    color: #8b5cf6;
+  }
+  
+  .logout-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #7c3aed;
+  }
+  
+  .logout-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .not-logged-in {
+    text-align: center;
+    color: #6b7280;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 480px) {
+    .profile-container {
+      margin: 20px auto;
+    }
+    
+    .profile-card {
+      padding: 20px;
+    }
+    
+    .profile-section {
+      padding: 16px;
+    }
+  }
