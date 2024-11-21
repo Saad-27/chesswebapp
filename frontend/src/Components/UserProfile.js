@@ -3,7 +3,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { getDoc, doc } from 'firebase/firestore';
 import { auth, db } from './config';
 import { useNavigate } from 'react-router-dom';
-import { Mail, Award, LogOut, PenLine } from 'lucide-react';
+import { Mail, Award, LogOut, PenLine, User } from 'lucide-react';
 import './css/UserProfile.css';
 
 const UserProfile = () => {
@@ -48,9 +48,15 @@ const UserProfile = () => {
           <PenLine className="header-icon" />
           <h1>User Profile</h1>
         </div>
-
         {isLoggedIn ? (
           <>
+            <div className="profile-section">
+              <div className="section-header">
+                <User className="section-icon" />
+                <h2>Username</h2>
+              </div>
+              <p className="section-content">{userData?.username || 'No username set'}</p>
+            </div>
             <div className="profile-section">
               <div className="section-header">
                 <Mail className="section-icon" />
@@ -58,7 +64,6 @@ const UserProfile = () => {
               </div>
               <p className="section-content">{userData?.email}</p>
             </div>
-
             <div className="profile-section">
               <div className="section-header">
                 <Award className="section-icon" />
@@ -66,7 +71,6 @@ const UserProfile = () => {
               </div>
               <p className="section-content points">{userData?.points || 0}</p>
             </div>
-
             <button className="logout-button" onClick={handleLogout}>
               <LogOut className="logout-icon" />
               Logout
