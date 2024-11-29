@@ -27,7 +27,7 @@
     "install-backend": "cd ../backend && npm install",
     "start-backend": "cd ../backend && npm start",
     "setup": "npm run install-backend && npm install",
-    "start-all": "npm run start-backend & npm start"
+    "start-all": "concurrently \"npm run start-backend\" \"npm start\""
   },
   "eslintConfig": {
     "extends": [
