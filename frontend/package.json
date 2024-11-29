@@ -23,7 +23,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "install-backend": "cd ../backend && npm install",
+    "start-backend": "cd ../backend && npm start",
+    "setup": "npm run install-backend && npm install",
+    "start-all": "npm run start-backend & npm start"
   },
   "eslintConfig": {
     "extends": [

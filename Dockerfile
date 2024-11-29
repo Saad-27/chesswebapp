@@ -20,16 +20,16 @@ RUN npm run build
 FROM node:20.11.1-alpine as backend-build
 
 # Set working directory for backend
-WORKDIR /app/backend
+WORKDIR /app/Backend
 
 # Copy backend package files
-COPY backend/package*.json ./
+COPY Backend/package*.json ./
 
 # Install backend dependencies
 RUN npm install
 
 # Copy backend source code
-COPY backend/ ./
+COPY Backend/ ./
 
 # Final stage
 FROM node:20.11.1-alpine
@@ -38,13 +38,13 @@ FROM node:20.11.1-alpine
 WORKDIR /app
 
 # Copy backend from backend-build
-COPY --from=backend-build /app/backend ./backend
+COPY --from=backend-build /app/Backend ./Backend
 
 # Copy frontend build from frontend-build
 COPY --from=frontend-build /app/frontend/build ./frontend/build
 
 # Set working directory to backend
-WORKDIR /app/backend
+WORKDIR /app/Backend
 
 # Expose backend port
 EXPOSE 3001
